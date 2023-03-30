@@ -1,0 +1,204 @@
+<head>
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    body,
+    section {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+
+    body {
+      font-size: 40px;
+    {% comment %} line-height: 1.1; {% endcomment %}
+      font-weight: 200;
+      letter-spacing: 0em;
+      min-height: 100vh;
+      font-family: "SF Pro Display", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;;
+      line-height: 0.1;
+      background-size:cover;
+      background-image: url("https://source.unsplash.com/1920x1500/?3d-geometry");
+      color: #251;
+    }
+
+    main {
+      max-width: 720px;
+      width: 100%;
+      border: 2.5px solid #c1c1c1;
+      border-radius: 50px;
+      box-shadow: 0 10px 20px rgba(17, 17, 17, 0.125), 0 5px 5px rgba(17, 17, 17, 0.25);
+      background: linear-gradient(to top, #ad30d0 0%, #ad30d0 100%), url("https://source.unsplash.com/1920x1500/?tiny");
+      background-size: cover;
+      background-position: center;
+    }
+
+    h1 {
+      padding: 1rem;
+      color: white;
+    }
+
+    input,
+    button {
+      font-family: "SF Pro Display", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;;
+      line-height: inherit;
+      color: #c1c1c1;
+      border: 0;
+      padding: 1rem;
+      border-radius: 40px;
+    }
+
+    input {
+      box-sizing: border-box;
+      border-radius: 30px;
+      width: 100%;
+    }
+
+    .buttons {
+      display: flex;
+      border-radius: 40px;
+    }
+    
+    button {
+      cursor: pointer;
+      flex: 1;
+      background-color: transparent;
+      background-image: inherit;
+      color: white;
+      border: none;
+      padding: 1rem;
+      border-radius: 30px;
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+      transition: transform 0.4s ease-in;
+    }
+    
+    button:active {
+      transform: scale(0.97);
+    }
+    
+
+    button {
+      cursor: pointer;
+      flex: 1;
+      background-color: transparent;
+      border-radius: 20px;
+      color: white;
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.5);
+      }
+    }
+
+    section {
+      min-height: 120px;
+      text-align: center;
+      background-color: white;
+      transition: all 0.5s ease-in-out; /* add transition for smooth color change */
+    }
+  </style>
+  {% comment %} <script>
+    function randomColor() {
+      return Math.floor(Math.random() * 256);
+    }
+
+    function changeColors() {
+      const body = document.querySelector("body");
+      const main = document.querySelector("main");
+      const h1 = document.querySelector("h1");
+      const input = document.querySelector("input");
+      const buttons = document.querySelectorAll("button");
+
+      body.style.backgroundColor = `rgb(${randomColor()}, ${randomColor()}, ${randomColor()})`;
+      main.style.borderColor = `rgb(${randomColor()}, ${randomColor()}, ${randomColor()})`;
+      main.style.boxShadow = `0 10px 20px rgba(17, 17, 17, 0.125), 0 5px 5px rgba(17, 17, 17, 0.25), 5px 5px 10px rgba(${randomColor()}, ${randomColor()}, ${randomColor()}, 0.2)`;
+      h1.style.color = `rgb(${randomColor()}, ${randomColor()}, ${randomColor()})`;
+      input.style.backgroundColor = `rgb(${randomColor()}, ${randomColor()}, ${randomColor()})`;
+      input.style.color = `rgb(${randomColor()}, ${randomColor()}, ${randomColor()})`;
+      buttons.forEach(button => {
+        button.style.backgroundColor = `rgb(${randomColor()}, ${randomColor()}, ${randomColor()})`;
+        button.style.boxShadow = `2px 2px 5px rgba(0, 0, 0, 0.1), 5px 5px 10px rgba(${randomColor()}, ${randomColor()}, ${randomColor()}, 0.2)`;
+      });
+    }
+
+    setInterval(changeColors, 1000); // change colors every second
+  </script> {% endcomment %}
+</head>
+{% comment %} <main>
+  <h1>URL Shortener</h1>
+  <form id="post-form">
+    {% csrf_token %}
+  <input type="text" name="link" id="link" placeholder="Enter URL here">
+  <div class="buttons">
+    <button type="submit" id="shorten">Shorten</button>
+  </div>
+  </form>
+  
+  <section id="section"><h2></h2></section>
+    
+</main> {% endcomment %}
+<main id="myElement" style="padding: 2rem; transition: background 3s ease-in-out;">
+
+<script>
+  const element = document.getElementById("myElement");
+
+  // function to generate a random color
+  function getRandomColor() {
+    const letters = "0123456789ABCDEF";
+    let color = "#";
+    for (let i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  }
+
+  // function to update the background color
+  function updateBackground() {
+    const color1 = getRandomColor();
+    const color2 = getRandomColor();
+    element.style.background = `linear-gradient(to bottom right, ${color1}, ${color2})`;
+  }
+
+  // update the background every 5 seconds
+  setInterval(updateBackground, 5000);
+
+</script>
+  <h1 style="color: #FFF; text-align: center;">URL Shortener</h1>
+  <form id="post-form">
+    {% csrf_token %}
+    <input type="text" name="link" id="link" placeholder="Enter URL here" style="padding: 1rem; font-size: 1.1rem; border-radius: 5px; border: none; box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); width: 100%; margin-bottom: 1rem;">
+    <div class="buttons" style="display: flex; justify-content: center;">
+      <button type="submit" id="shorten" class="btn btn-primary" style="padding: 1rem 2rem; background-color: #FFF; color: #BB377D; font-size: 1.1rem; border-radius: 5px; border: none; box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); cursor: pointer; transition: all 0.2s;">SHORTEN</button>
+    </div>
+  </form>
+  
+  <section id="section" style="background-color: #FFF; color: #CC377D; padding: 2rem; text-align: center; border-radius: 5px; box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); margin-top: 1rem; font-size: 1.1rem;"><h2></h2></section>
+    
+</main>
+
+
+<script type="text/javascript">
+  $(document).on('submit','#post-form',function(e){
+    e.preventDefault();
+
+    $.ajax({
+      type:'POST',
+      url:'/create',
+      data:{
+        link:$('#link').val(),
+        csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val(),
+      },
+      success: function(data){
+        $('h2').html("localhost:8040/"+data)
+      }
+    });
+  });
+</script>
+
+
+
+
