@@ -9,7 +9,7 @@ The app allows users to enter a long URL and get a short URL in return. Users ca
 
 ## Tech Stacks:
 Django
-HTML CSS
+HTML 
 Ajax
 
 ## Features
