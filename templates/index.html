@@ -137,9 +137,23 @@
     <button type="submit" id="shorten">Shorten</button>
   </div>
   </form>
-  
-  <section id="section"><h2></h2></section>
+   
+  <section id="section" style="background-color: #FFF; color: #CC377D; padding: 2rem; text-align: center; border-radius: 5px; box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); margin-top: 1rem; font-size: 1.1rem; position: relative;">
+    <h2></h2>
     
+    <button id="copyButton" style="background-color: #b6b6b6;color: white;position: absolute;top: 44;right: 99;ding: 0.5rem;font-size: 0.8rem;">Copy</button>
+  </section>
+  
+  
+  <script>
+    document.getElementById("copyButton").addEventListener("click", copyToClipboard);
+  
+    function copyToClipboard() {
+      const textToCopy = document.querySelector("#section h2").textContent;
+      navigator.clipboard.writeText(textToCopy);
+    }
+  </script>
+  
 </main> {% endcomment %}
 <main id="myElement" style="padding: 2rem; transition: background 3s ease-in-out;">
 
