@@ -30,6 +30,7 @@ Install dependencies by running pip install -r requirements.txt
 Create a new database by running python manage.py migrate
 
 Run the server using python manage.py runserver
+* make sure you user port 8000 of the localhost *
 ## Usage
 Navigate to the app in your web browser.
 
